@@ -37,6 +37,6 @@ For more information, visit [OpenAI](https://www.openai.com).
 
 # Governing Equations 
 
-\begin{align}
+$$
 \frac{\partial \vartheta}{\partial t}
-\end{align}
+$$
