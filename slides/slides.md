@@ -35,6 +35,8 @@ $$
 
 For more information, visit [OpenAI](https://www.openai.com).
 
+---
+
 # Governing Equations 
 
 $$
