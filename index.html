@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Slides with Remark.js and MathJax</title>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"></script>
+    <style>
+        /* Add custom styles for the image */
+        img {
+            width: 80%;  /* Adjust to desired width (percentage) */
+            height: auto; /* Maintains aspect ratio */
+            max-width: 600px; /* Maximum width */
+            display: block; /* Centers the image */
+            margin: 0 auto; /* Centers the image horizontally */
+        }
+
+        /* Optional: Customize the table */
+        table {
+            width: 100%; /* Full width */
+            border-collapse: collapse; /* Collapse borders */
+        }
+        th, td {
+            border: 1px solid #ccc; /* Add borders */
+            padding: 8px; /* Add padding */
+            text-align: left; /* Align text */
+        }
+    </style>
+</head>
+<body>
+    <div id="slides"></div>
+    <script>
+        async function loadMarkdown(file) {
+            const response = await fetch(file);
+            return await response.text();
+        }
+
+        loadMarkdown('slides/slides.md').then(markdown => {
+            const slideshow = remark.create({
+                source: markdown
+            });
+
+            // Trigger MathJax to typeset the equations after Remark has rendered the slides
+            slideshow.on('show', function() {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            });
+        }).catch(error => {
+            console.error('Error loading slides:', error);
+        });
+    </script>
+</body>
+</html>
