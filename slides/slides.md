@@ -39,6 +39,8 @@ For more information, visit [OpenAI](https://www.openai.com).
 
 # Governing Equations 
 
+This is a test. 
+
 $$
 \frac{\partial \vartheta}{\partial t}
 $$
